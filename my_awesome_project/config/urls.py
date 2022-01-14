@@ -16,6 +16,7 @@ urlpatterns = [
     path("users/", include("my_awesome_project.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path("manage_file/", TemplateView.as_view(template_name="pages/manage_file.html"), name="manage_file"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
