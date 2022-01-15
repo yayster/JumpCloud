@@ -1,4 +1,4 @@
-#!flask/bin/python
+#!/usr/bin/env python3
 import os
 import os.path
 from pathlib import Path
@@ -35,10 +35,5 @@ def manage_file():
             return(message)
     return jsonify({'message': message}), 200
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
-################################################################################
-# inspiration and technical-know-how came from the following site:
-# https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
-#
+if __name__ == "__main__":
+    app.run(debug=True,host='0.0.0.0')
