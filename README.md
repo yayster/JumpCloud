@@ -26,6 +26,10 @@ I am seeing that there are a lot of other monitoring options as well.
 docker logs flask-app-test
 ```
 ---
+---
+
+# Notes on the Task
+
 I had committed to this utilizing [Django](https://www.djangoproject.com/) as a framework.
 
 However, after two days of plunking around with the framework, I grew fatigued trying to navigate all the different configuration files and settings.  What I was stumbling on and getting mired in were so far away from the original objective that the decision to utilize the framework was questioned as the cons heavily outweighed the benefits.  Additionally, the weight of the framework itself is exceptional for the task at hand.  I creating a multi-container app; one container was running Postgres.  This is just too heavy of any application for the task at hand.
