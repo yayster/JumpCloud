@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
 import os
 import os.path
+import requests
 from pathlib import Path
 from flask import request
 from flask import Flask, jsonify
 from flask import make_response
 
-download_url = 'https://www.learningcontainer.com/wp-content/uploads/2020/04/sample-text-file.txt'
+download_url = \
+    'https://www.learningcontainer.com/wp-content/uploads/2020/04/sample-text-file.txt'
 content_path = '/tmp/content.txt'
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "jumpcloud Cloud Operations Engineer Exercise"
+    return "JumpCloud Cloud Operations Engineer Exercise"
 
 @app.errorhandler(404)
 def not_found(error):
@@ -22,12 +24,14 @@ def not_found(error):
 @app.route('/manage_file', methods=['POST'])
 def manage_file():
     if not request.json or not 'action' in request.json:
-        abort(400)
+        message = 'unexpected input'
+        return jsonify({'message': message}), 200
     message = 'unknown action'
     if request.json['action'] == 'download':
         message = 'downloading content'
-        command = 'wget -q -O ' + content_path + ' ' + download_url
-        os.system(command)
+        r = requests.get(download_url)
+        with open( content_path, 'wb') as f:
+            f.write(r.content)
     if request.json['action'] == 'read':
         message = 'No content found.  Try downloading it'
         if os.path.exists( content_path ):
