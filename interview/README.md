@@ -42,9 +42,3 @@ Here are a few things that are likely to come up as you talk to our interview te
 Thank you for spending time with us and we hope this information is helpful!  We’re happy to answer any questions, address changes to your timeline, or communicate information to the hiring teams. 
  
 Please reach out if you need anything!
- 
-Andi Serow (she/her)
-Recruiting Coordinator
-andi.serow@jumpcloud.com
-210.995.1303
-JumpCloud
