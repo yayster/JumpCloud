@@ -25,6 +25,10 @@ curl -i -H "Content-Type: application/json" -X POST -d '{"action":"read"}' http:
 
 My goal would be to injest the STDOUT and STDERR of the container into some log consolidation service.
 
+### [json-logging module](https://github.com/bobbui/json-logging-python)
+This module is great to change the logging to json.
+However, I am not seeing how to log the request body, which would be important.
+
 I am seeing that there are a lot of other monitoring options as well.
 
 ```
