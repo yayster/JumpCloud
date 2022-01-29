@@ -2,6 +2,7 @@
 import os
 import os.path
 import requests
+import datetime, json_logging, logging, sys
 from pathlib import Path
 from flask import request
 from flask import Flask, jsonify
@@ -12,9 +13,19 @@ download_url = \
 content_path = '/tmp/content.txt'
 
 app = Flask(__name__)
+json_logging.init_flask(enable_json=True)
+json_logging.init_request_instrument(app)
+
+# init the logger as usual
+logger = logging.getLogger("test-logger")
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler(sys.stdout))
 
 @app.route('/')
 def index():
+    logger.info("test log statement")
+    logger.info("test log statement with extra props", extra={'props': {"extra_property": 'extra_value'}})
+    correlation_id = json_logging.get_correlation_id()
     return "JumpCloud Cloud Operations Engineer Exercise"
 
 @app.errorhandler(404)
