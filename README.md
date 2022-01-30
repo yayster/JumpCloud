@@ -31,6 +31,18 @@ However, I am not seeing how to log the request body, which would be important.
 
 I am seeing that there are a lot of other monitoring options as well.
 
+### [setup_logfile.sh](./setup_logfile.sh)
+
+This script sets up a logfile on the developer's mac.
+It will need modification -- of the group name at least -- if run on another host.
+
+Once the logfile is set up, and the container running use the following to stream the logs to the log-file:
+```
+docker logs flask-app-test -f >> /var/log/JumpCloud_flask_container.log 2>&1 &
+```
+
+
+
 ```
 docker logs flask-app-test
 ```
@@ -62,5 +74,5 @@ davidkayal@DAVIDs-MBP simple_api % ls -l /var/log/JumpCloud_flask_container.log
 -rwxrwxr-x  1 root  staff  0 Jan 14 18:53 /var/log/JumpCloud_flask_container.log
 davidkayal@DAVIDs-MBP simple_api % docker
 
-docker logs flask-app-test -f >> /var/log/JumpCloud_flask_container.log 2>&1 &
+
 
